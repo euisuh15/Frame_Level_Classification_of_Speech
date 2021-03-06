@@ -1,3 +1,8 @@
+import numpy as np
+import torch
+import torch.nn as nn
+from torch.utils import data
+
 def train_epoch(model, train_loader, criterion, optimizer):
   print('Training...')
   model.train()
