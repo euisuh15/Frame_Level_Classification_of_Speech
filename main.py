@@ -38,7 +38,9 @@ class Simple_MLP(nn.Module):
 
     for i in range(len(size_list)-2):
       layers.append(nn.Linear(size_list[i], size_list[i+1]))
+      layers.append(nn.BatchNorm1d(size_list[i+1]))
       layers.append(nn.ReLU())
+      layers.append(nn.Dropout(p=0.2))
 
     layers.append(nn.Linear(size_list[-2], size_list[-1]))
     self.net = nn.Sequential(*layers)
@@ -67,7 +69,7 @@ dev_loader = data.DataLoader(dev_dataset, **dev_loader_args)
 
 
 
-model = Simple_MLP([40*(2*context+1), 1024, 1024, 71])
+model = Simple_MLP([40*(2*context+1), 1024, 1024, 1024, 512, 71])
 criterion = nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr)
 device = torch.device("cuda" if cuda else "cpu")
