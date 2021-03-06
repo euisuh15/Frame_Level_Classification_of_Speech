@@ -1,7 +1,3 @@
----
-typora-copy-images-to: images
----
-
 # Frame_Level_Classification_of_Speech
 
 Deep learning based neural network for speech recognition
@@ -25,7 +21,7 @@ pip install pytorch
 
 14542 labels were used for training, 2200 for validation, and 2200 for testing.
 
-![image-20210306131235320](images\image-20210306131235320.png)
+<img src="images\image-20210306131235320.png" alt="image-20210306131235320" style="zoom: 50%;" />
 
 
 
